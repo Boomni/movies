@@ -12,7 +12,7 @@ function SearchList(props) {
       removeSearch={props.removeSearch}
       addToFavorites={props.addToFavorites}
       removeFavorite={props.removeFavorite}
-      favorites={props.favorites} />
+      showModal={props.showModal} />
     ))}
   </ul>
 ) : (
