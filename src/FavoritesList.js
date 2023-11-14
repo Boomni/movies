@@ -1,28 +1,28 @@
 import React from 'react';
 
-function FavoritesList(props) {
-  const removeFavorite = (movie) => {
-    props.removeFavorite(movie);
+function FavoritesList({ favorites, removeFavorite, showModal }) {
+  const handleRemoveFavorite = (movie) => {
+    removeFavorite(movie);
   };
 
   return (
     <div>
       <h3>Favorite Movies</h3>
       <ul>
-        {props.favorites.map((movie) => (
+        {favorites.map((movie) => (
           <div key={movie.imdbID}>
             <div>
               <img
                 src={movie.Poster}
                 alt={movie.Title}
-                onClick={() => props.showModal(movie)} // Pass the movie correctly
+                onClick={() => showModal(movie)}
               />
               <div>
                 <h4>{movie.Title}</h4>
                 <p>{movie.Year}</p>
               </div>
             </div>
-            <button onClick={() => removeFavorite(movie)}>Remove Favorite</button>
+            <button onClick={() => handleRemoveFavorite(movie)}>Remove Favorite</button>
           </div>
         ))}
       </ul>

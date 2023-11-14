@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from 'axios';
 
-function Search(props) {
+function Search({addSearched}) {
     const [title, setTitle] = useState('');
 
     const search = async (e) => {
@@ -12,17 +12,20 @@ function Search(props) {
         try {
             const response = await axios.get(url);
             const data = response.data;
-            props.addSearched(data);
-            console.log(data);
+            if (data.Title) {
+                addSearched(data);
+            } else {
+                alert(`No movie named ${title} found!`)
+            }
         } catch (error) {
             console.error(error);
         }
     }
 
     return (
-        <div>
+        <div className="searchCtn">
+            <p>Find Your Favorite Movie</p>
             <form onSubmit={search}>
-                <label htmlFor="query">Movie Title</label>
                 <input
                     type="text"
                     name="query"

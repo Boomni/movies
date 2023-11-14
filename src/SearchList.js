@@ -1,23 +1,22 @@
 import SearchedMovie from './SearchedMovie';
 
-function SearchList(props) {
+function SearchList({ searched, removeSearch, addToFavorites, showModal }) {
   return (
     <div>
-{props.searched.length > 0 ? (
-  <ul>
-    <h3>Search Result</h3>
-    {props.searched.map(movie => (
-      <SearchedMovie
-      movie={movie}
-      removeSearch={props.removeSearch}
-      addToFavorites={props.addToFavorites}
-      removeFavorite={props.removeFavorite}
-      showModal={props.showModal} />
-    ))}
-  </ul>
-) : (
-  <p>Search for a movie</p>
-)}
+      {searched.length > 0 ? (
+        <ul>
+          <h3>Search Result</h3>
+          {searched.map(movie => (
+            <SearchedMovie
+              key={movie.imdbID}
+              movie={movie}
+              removeSearch={removeSearch}
+              addToFavorites={addToFavorites}
+              showModal={showModal}
+            />
+          ))}
+        </ul>
+      ) : null}
     </div>
   );
 }

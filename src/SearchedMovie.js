@@ -6,7 +6,12 @@ function SearchedMovie({ movie, removeSearch, addToFavorites, showModal }) {
   };
 
   const handleAddToFavorites = () => {
-      addToFavorites(movie);
+      if (movie.Title) {
+        addToFavorites(movie);
+        alert(`${movie.Title} sucessfully added to your favourite list!`)
+      } else {
+        alert(`Invalid Movie!`)
+      }
   };
 
   const handleshowModal = () => {
@@ -22,7 +27,7 @@ function SearchedMovie({ movie, removeSearch, addToFavorites, showModal }) {
           <p>{movie.Year}</p>
         </div>
       </div>
-        <button onClick={handleRemove}>Remove Movie</button>
+        <button onClick={handleRemove}>Back</button>
         <button onClick={handleAddToFavorites}>Add to Favorite</button>
     </div>
   );

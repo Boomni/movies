@@ -41,11 +41,25 @@ function App() {
   return (
     <div className="App">
       <Search addSearched={addSearched} />
-      <SearchList searched={searched} removeSearch={removeSearch} addToFavorites={addToFavorites} showModal={showModal}/>
-      <FavoritesList favorites={favorites} removeFavorite={removeFavorite} showModal={showModal}/>
+      <SearchList
+        searched={searched}
+        removeSearch={removeSearch}
+        addToFavorites={addToFavorites}
+        showModal={showModal}
+      />
+      <FavoritesList
+        favorites={favorites}
+        removeFavorite={removeFavorite}
+        showModal={showModal}
+      />
       { selectMovie && (
-      <MovieModal isModalOpen={isModalOpen} closeModal={closeModal} movie={selectMovie}/>
+        <MovieModal isModalOpen={isModalOpen} closeModal={closeModal} movie={selectMovie}/>
       )}
+      <footer>
+        <p>
+          Proudly made by Jonathan Boomni. Copyright. All rights reserved.
+        </p>
+      </footer>
     </div>
   );
 }
