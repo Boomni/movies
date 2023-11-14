@@ -15,8 +15,6 @@ This App is a web application built with React that allows users to search for m
 
 ## Demo
 
-[Provide a link to a live demo of your application if available.]
-
 ## Features
 
 - Search for movies by title.
